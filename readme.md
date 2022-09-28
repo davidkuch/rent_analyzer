@@ -43,3 +43,5 @@ test - runs the test cases
 cli_server - runs a CLI server that prompts for csv file and year-month input,
                and prints the result of running the queries.
                
+ Go - directory, another version of the same software, in Golang. Not finished yet.
+               
