@@ -37,7 +37,7 @@ def daysReservedInMonth(office: dict, month : datetime) -> int:
         return 0
 
     if start == end:
-        return start
+        return 1
 
     return end - start
 
