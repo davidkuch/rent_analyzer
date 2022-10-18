@@ -1,6 +1,7 @@
 from datetime import datetime
 from itertools import count
-from ResearchUtils import ResearchUtils as office
+from sqlite3 import Row
+from ResearchUtils import *
 
 
 class Researcher:
@@ -14,7 +15,7 @@ class Researcher:
         count = 0
 
         for record in self.data:
-            if office.ReservedInMonth(record, month):
+            if ReservedInMonth(record, month):
                 count += 1
 
         return count
@@ -25,7 +26,7 @@ class Researcher:
         capacity  = 0
 
         for record in self.data:
-            if office.ReservedInMonth(record, month) == False:
+            if ReservedInMonth(record, month) == False:
                 capacity += record['Capacity']
 
         return capacity
@@ -36,8 +37,8 @@ class Researcher:
         profit = 0
 
         for record in self.data:
-            if office.ReservedInMonth(record, month):
-                profit += office.ProfitForMonth(record)
+            if ReservedInMonth(record, month):
+                profit += ProfitForMonth(record, month)
 
         return profit
 
@@ -47,7 +48,7 @@ class Researcher:
         count = 0
 
         for record in self.data:
-            if office.ReservedIndefinitely(record):
+            if ReservedIndefinitely(record):
                 count += 1
 
         return count
